@@ -110,5 +110,60 @@ export const addCard = asyncHandler(async (req, res) => {
     set.flashcards.push(flashcard);
     await set.save();
 
+    res.status(201).json(flashcard);
+});
+
+// @route PUT /api/sets/:setId/cards/:cardId
+export const updateCard = asyncHandler(async (req, res) => {
+    const { text, answer } = req.body;
+    if (!text && !answer) {
+        res.status(400);
+        throw new Error("New text or answer required");
+    }
+    
+    const set = await FlashcardSet.findOne({
+        _id: req.params.setId,
+        userId: req.user.id
+    });
+    if (!set) {
+        res.status(404);
+        throw new Error("Set not found");
+    }
+
+    const flashcard = set.flashcards.id(req.params.cardId);
+    if (!flashcard) {
+        res.status(404);
+        throw new Error("Card not found");
+    }
+
+    // Update the flashcard
+    flashcard.text = text || flashcard.text;
+    flashcard.answer = answer || flashcard.answer;
+    await set.save();
+
+    res.status(200).json(flashcard);
+});
+
+// @route DELETE /api/sets/:setId/cards/:cardId
+export const deleteCard = asyncHandler(async (req, res) => {
+    const set = await FlashcardSet.findOne({
+        _id: req.params.setId,
+        userId: req.user.id
+    });
+    if (!set) {
+        res.status(404);
+        throw new Error("Set not found");
+    }
+
+    const flashcard = set.flashcards.id(req.params.cardId);
+    if (!flashcard) {
+        res.status(404);
+        throw new Error("Card not found");
+    }
+
+    // Remove flashcard from the array
+    set.flashcards.pull(flashcard);
+    await set.save();
+
     res.status(200).json(flashcard);
 });
