@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flashcard App</title>
+        
+        <link rel="stylesheet" href="/css/stylesheet.css">
+
+        <script type="module" src="/js/register.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+            <h3 style="width:15%"></h3>
+            <h1 id="navbar-header">Flashcard App</h1>
+            <button id="login-button" class="button">Log in</button>
+        </nav>
+        <main>
+            <div class="login">
+                <h2 class="login-header">Register</h2>
+            
+                <label for="username-field" class="visually-hidden"></label>
+                <input id="username-field" class="input" type="text" placeholder="Username" autocomplete="off">
+            
+                <label for="password-field" class="visually-hidden"></label>
+                <input id="password-field" class="input" type="password" placeholder="Password" autocomplete="off">
+                <input id="password-confirm-field" class="input" type="password" placeholder="Confirm password" autocomplete="off">
+            
+                <p id="button-label" class="visually-hidden"></p>
+                <button id="sign-in-button" class="button">Sign up</button>
+            </div>
+        </main> 
+    </body>
+</html>

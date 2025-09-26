@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flashcard App</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+
+        <script type="module" src="/js/set.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+            <button id="dashboard-button" class="button">Dashboard</button>
+            <h1 id="navbar-header">Flashcard App</h1>
+            <button id="logout-button" class="button">Log out</button>
+        </nav>
+        <main>
+            <div class="set-dashboard"> 
+                <h1 class="title-header"></h1>
+                    <div class="review-button-div">
+                        <button id="review-all-button" class="button review-button">Review All</button>
+                        <button id="review-mistakes-button" class="button review-button">Review Mistakes</button>
+                    </div>
+                    <div class="set-view-flex">
+                        <div class="set-vertical-flex">
+                            <input id="new-title-input" class="input" type="text" placeholder="New Title" autocomplete="off" maxlength="32"></input>
+                            <button id="change-title-button" class="button">Change Title</button>
+                        </div>
+                        <div class="set-vertical-flex">
+                            <button id="delete-set-button" class="button">Delete Set</button>
+                            <button id="confirm-delete-set-button" class="visually-hidden button">Confirm</button>
+                        </div>
+                    </div>
+
+                <div class="grid-container">
+                    <div id="add-flashcard-box" class="grid-add-box">
+                        <h3>Add Card</h3>
+                        <button id="add-flashcard-button" class="grid-add-button"></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

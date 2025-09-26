@@ -1,0 +1,408 @@
+:root {
+    --background-main: #d6ccc2;
+    --background-secondary: #f5ebe0;
+    --element-color: #d5bdaf;
+    --element-hover-color: #d3b09b;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Roboto, sans-serif;
+}
+
+html, body {
+    min-height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: var(--background-main);
+    padding-top: 11vh;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+main {
+    height: 100%;
+    padding-bottom: 2vh;
+}
+
+/* === Navbar === */
+.navbar {
+    display: flex;
+    top: 0; left: 0; right: 0;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    height: 8vh;
+    text-align: center;
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#navbar-header {
+    text-align: center;
+}
+
+#logout-button, #dashboard-button, #register-button, #login-button {
+    width: 15%;
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* === Login/Register Pages === */
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 60vh;
+    width: 540px;
+    margin: auto;
+    background-color: var(--background-secondary);
+    border-radius: 7px;
+}
+
+.login-header {
+    font-size: 2em;
+    text-align: center;
+}
+
+.login input {
+    width: 75%;
+    height: 10%;
+    font-size: 1.2em;
+}
+
+#sign-in-button {
+    width: 35%;
+    height: 10%;
+    font-size: 1.2em;
+}
+
+.warning-label {
+    color:#ff003c;
+    padding: 0px;
+    font-size: 1.2em;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.7);
+}
+
+/* === Dashboard Page === */
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    max-width: 660px;
+    margin: auto;
+    background-color: var(--background-secondary);
+    border-radius: 7px;
+}
+
+.dashboard-header {
+    margin-top: 15px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
+    grid-auto-rows: minmax(150px, 150px);
+    gap: 10px;
+    width: 80%;
+    margin-bottom: 70px;
+}
+
+.set-grid-item {
+    width: 100%;
+    background-color: var(--element-color);
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.set-grid-item:hover, .flashcard-grid-item:hover {
+    background-color: var(--element-hover-color);
+}
+
+.set-grid-item p {
+    font-size: 1.7em;
+    text-align: center;
+    font-weight: 450;
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.7);
+    width: 100%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+.grid-add-box {
+    background: var(--background-secondary);
+    border-style: dashed;
+    border-radius: 10px;
+    background-image: url("/assets/plus-circle.svg");
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: center;
+    position: relative;
+}
+
+.grid-add-button {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#add-set-input {
+    position: absolute;
+    margin: auto;
+    top: 110px;
+    left: 10px;
+    width: 130px;
+    height: 30px;
+    font-size: 0.95em;
+}
+
+.grid-add-box h3 {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 8px;
+}
+
+/* === Set Page === */
+.set-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 80vh;
+    max-width: 660px;
+    margin: auto;
+    background-color: var(--background-secondary);
+    border-radius: 7px;
+}
+
+.title-header {
+    margin: 15px;
+    text-align: center;
+}
+
+.review-button-div {
+    display: flex;
+    justify-content: space-between;
+    width: clamp(180px, 45%, 100vw);
+}
+
+.review-button {
+    width: clamp(90px, 45%, 100vw);
+    height: 8vh;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 1.3em;
+}
+
+.set-view-flex {    
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 15vh;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.set-vertical-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 12vh;
+    width: 100%;
+}
+
+#new-title-input, #change-title-button, #delete-set-button, .confirm-delete-set-button {
+    margin: auto;
+    width: clamp(80px, 60%, 100vw);
+    height: 5vh;
+    font-size: 1em;
+}
+
+.flashcard-grid-item {
+    width: 100%;
+    background-color: var(--element-color);
+    border-style: solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.flashcard-grid-item p {
+    font-size: 1.1em;
+    text-align: center;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    white-space: normal;
+    width: 100%;
+}
+
+/* === Flashcard Update/Create Pages === */
+.flashcard-header {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.flashcard-text {
+    width: 75%;
+    height: 20vh;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    resize: none;
+}
+
+.flashcard-action-button {
+    padding: 10px;
+    font-size: 1em;
+    width: clamp(100px, 25%, 100vw);
+}
+
+.flashcard-action-info {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#flashcard-delete-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    margin-top: 55px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.flashcard-delete-button {
+    padding: 10px;
+    width: clamp(100px, 20%, 100vw);
+    font-size: 0.9em; 
+}
+
+/* === Flashcard Review Page === */
+.flashcard-review-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60vh;
+    max-width: 560px;
+    margin: auto;
+    background-color: var(--background-secondary);
+    border-radius: 7px;
+    cursor: pointer;
+    padding: 25px;
+}
+
+#flashcard-text-div {
+    height: 50vh;
+    width: clamp(200px, 80%, 100vw);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#flashcard-text-p {
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 40px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-wrap: break-word;
+    white-space: pre-line;
+}
+
+#info-p {
+    text-align: center;
+    color: rgb(68, 68, 68);
+}
+
+.flashcard-result-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    max-width: 300px;
+    margin-top: 20px;
+}
+
+.flashcard-result-buttons button {
+    width: clamp(80px, 45%, 100vw);
+    height: 7vh;
+}
+
+.incorrect-button {
+    background-image: url("/assets/cross.svg");
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: center;
+}
+
+.correct-button {
+    background-image: url("/assets/tick.svg");
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position: center;
+}
+
+/* === Utility Classes === */
+.visually-hidden {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #d5d9d9;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #f7fafa;
+}
+
+.input {
+    border: 1px solid #d5d9d9;
+    border-radius: 5px;
+    background-color:#f9f9f9;
+    text-align: center;
+}
+
+.no-select {
+    user-select: none;
+}

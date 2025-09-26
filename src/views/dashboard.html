@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flashcard App</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+
+        <script type="module" src="/js/dashboard.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+            <button id="dashboard-button" class="button">Dashboard</button>
+            <h1 id="navbar-header">Flashcard App</h1>
+            <button id="logout-button" class="button">Log out</button>
+        </nav>
+        <main>
+            <div class="dashboard">
+                <h1 class="dashboard-header">Flashcard Sets</h1>
+                <div class="grid-container">
+                    <div id="add-set-box" class="grid-add-box">
+                        <h3>Add Set</h3>
+                        <button id="add-set-button" class="grid-add-button"></button>
+                        <input id="add-set-input" class="input" type="text" placeholder="Set Title" autocomplete="off" maxlength="32"></input>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

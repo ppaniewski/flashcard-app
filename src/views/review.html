@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flashcard App</title>
+
+        <link rel="stylesheet" href="/css/stylesheet.css">
+
+        <script type="module" src="/js/review.js"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar">
+            <button id="dashboard-button" class="button">Dashboard</button>
+            <h1 id="navbar-header">Flashcard App</h1>
+            <button id="logout-button" class="button">Log out</button>
+        </nav>
+        <main>
+            <div id="flashcard-review-div" class="flashcard-review-div no-select"> 
+                <div id="flashcard-text-div">
+                    <p id="flashcard-text-p"></p>
+                </div>
+                <p id="info-p">Click flashcard or press Spacebar to flip</p>
+            </div>
+            <div class="flashcard-result-buttons">
+                <button id="incorrect-button" class="button incorrect-button"></button>
+                <button id="correct-button" class="button correct-button"></button>
+            </div>
+        </main>
+    </body>
+</html>
