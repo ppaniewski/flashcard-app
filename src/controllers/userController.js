@@ -62,7 +62,19 @@ export const loginUser = asyncHandler(async (req, res) => {
         {expiresIn: JWT_EXPIRATION}
     );
 
-    // Create refresh token 
-
-    res.status(200).json({ accessToken });
+    res.cookie("accessToken", accessToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: "strict",
+        maxAge: 1000 * 60 * 60 * 24
+    }).status(200).send();
 });
+
+// @route POST /api/users/logout
+export const logoutUser = asyncHandler(async (req, res) => {
+    res.clearCookie("accessToken", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "strict"
+    }).status(200).send();
+}); 

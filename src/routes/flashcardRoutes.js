@@ -1,11 +1,11 @@
 import express from 'express';
-import authMiddleware from "../middleware/authMiddleware.js";
+import requireAuth from "../middleware/requireAuth.js";
 import { getSets, getSet, createSet, updateSet, deleteSet, addCard, updateCard, deleteCard } from "../controllers/flashcardController.js";
 
 const router = express.Router();
 
 // Authenticate user before any flashcard action
-router.use(authMiddleware);
+router.use(requireAuth);
 
 // Sets
 router.route("/").get(getSets).post(createSet);

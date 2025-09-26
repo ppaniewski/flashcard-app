@@ -1,13 +1,11 @@
 import jwt from "jsonwebtoken";
 
-const authMiddleware = (req, res, next) => {
-    const authHeader = req.headers.Authorization || req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith("Bearer")) {
+const requireAuth = (req, res, next) => {
+    const accessToken = req.cookies.accessToken;
+    if (!accessToken) {
         res.status(401);
         throw new Error("Not authorized");
     }
-
-    const accessToken = authHeader.split(" ")[1];
 
     try {
         const decoded = jwt.verify(accessToken, process.env.JWT_SECRET);
@@ -15,9 +13,10 @@ const authMiddleware = (req, res, next) => {
         next();
     }
     catch (err) {
+        req.user = null;
         res.status(401);
         throw new Error("Not authorized");
     }
 };
 
-export default authMiddleware;
+export default requireAuth;

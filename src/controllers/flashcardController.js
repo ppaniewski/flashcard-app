@@ -4,7 +4,7 @@ import FlashcardSet from "../models/flashcardModel.js";
 // @route GET /api/sets
 export const getSets = asyncHandler(async (req, res) => {
     // Don't include flashcards in the list
-    const sets = await FlashcardSet.find({userId: req.user.id}).select("_id title");
+    const sets = await FlashcardSet.find({userId: req.user.id}).select("_id title").sort({ updatedAt: -1 });
     res.status(200).json(sets);
 });
 
