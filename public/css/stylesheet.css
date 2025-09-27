@@ -52,7 +52,7 @@ main {
 }
 
 #logout-button, #dashboard-button, #register-button, #login-button {
-    width: 15%;
+    width: clamp(100px, 15%, 100vw);
     font-size: 1.2em;
     padding: 5px;
 }
@@ -64,7 +64,7 @@ main {
     justify-content: space-around;
     align-items: center;
     height: 60vh;
-    width: 540px;
+    max-width: 540px;
     margin: auto;
     background-color: var(--background-secondary);
     border-radius: 7px;
@@ -390,6 +390,7 @@ main {
     background-color: #fff;
     border: 1px solid #d5d9d9;
     border-radius: 5px;
+    text-align: center;
 }
 
 .button:hover {
